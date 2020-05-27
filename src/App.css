@@ -37,20 +37,98 @@
   }
 }
 
-.right-col{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  border: 1px solid black;
+.body-page{
+  background-image: url(https://wallpaperplay.com/walls/full/0/b/b/239421.jpg);
+  background-size: cover;
 }
 
-.left{
-  display: flex;
-  flex-direction: column!important;
+.nav-bar{
+  background-color: #1c1c1c;
+  color: white;
+  align-items: center;
 }
 
-.right{
+.input-box{
+  width: 100%;
+}
+
+
+
+.top-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid black; */
+  margin-top: 8px;
+  color: white;
+  font-weight: bold;
+  background-color: rgba(22, 22, 22, 0.349);
+  border-radius: 10px;
+  padding: 5px
+}
+
+.middle-section{
+  align-items: center;
+  /* border: 1px solid black; */
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.bottom-section{
+  color: white;
+  font-weight: bold;
+}
+
+.bottom-text{
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.middle-column{
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 72, 0, 0.658);
+  border-radius: 20px;
+}
+
+.LRcolumn{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.button{
+  border-radius: 10px;
+  border: 2px solid rgb(156, 40, 40);
+  box-shadow: rgb(155, 113, 59);
+  margin-bottom: 2px;
+}
+button:hover{
+  background-color: rgb(248, 66, 66);
+  color: white;
+  font-weight: bold;
+}
+
+h1{
+  color: white;
+  font-weight: bold;
+}
+
+h2{
+  color: white
+}
+
+h4{
+  color: white
+}
+
+a{
+  color: white
+}
+a:hover{
+  text-decoration: none;
+  color: red;
 }

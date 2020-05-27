@@ -4,6 +4,8 @@ import { Navbar } from 'react-bootstrap'
 import { Nav } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
 import { Row } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
+import { FormControl } from 'react-bootstrap'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
@@ -52,42 +54,64 @@ export default class App extends Component {
       return (<div>Loading</div>)
     }
     return (
-      <div className="">
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="#home">Weather</Navbar.Brand>
-          <Nav className="mr-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
-        </Navbar>
-        
-        <Container>
-          <Row>
-            <Col-2 >
-              <div className="left">
-                  <button onClick={() => this.getCity("Vietnam")}>Ho chi minh</button>
-                  <button onClick={() => this.getCity("Paris")}>Paris</button>
-                  <button onClick={() => this.getCity("New York")}>New York</button>
-                  <button onClick={() => this.getCity("Miami")}>Miami</button>
-                  <button onClick={() => this.getCity("San Francisco")}>San Francisco</button>
-                  <button onClick={() => this.getCity("Moscow")}>Moscow</button>
-                  <button onClick={() => this.getCity("Tokyo")}>Tokyo</button>`
-                </div>
-            </Col-2>
-            <Col-10>
-              <div className="right">
+      <div className="body-page">
+        <div className="row nav-bar">
+          <div className="col-1 text-center"><h3>Weather</h3></div>
+          <div className="col-10 text-center">
+            <input type="text" placeholder="Search City" className="mr-sm-2 input-box"/>
+          </div>
+          <div className="col-1 text-center"><a href="#features">Setting</a></div>
+        </div>
+        <div className="container">
+          <div className="row top-section">
+            <p className="text-center">Welcome to Weather. News Here you can find the best weather's news uploaded by our community. Support us by sharing the content, upvoting news on the page or sending your own weather location.</p>
+            <a href="#">See more</a>
+          </div>
+          <div className="row middle-section">
+              <div className="col-3 LRcolumn" >
+                <button className="button" onClick={() => this.getCity("Vietnam")}>Ho chi minh</button>
+                <button className="button" onClick={() => this.getCity("Paris")}>Paris</button>
+                <button className="button" onClick={() => this.getCity("New York")}>New York</button>
+                <button className="button" onClick={() => this.getCity("Miami")}>Miami</button>
+                <button className="button" onClick={() => this.getCity("San Francisco")}>San Francisco</button>
+                <button className="button" onClick={() => this.getCity("Moscow")}>Moscow</button>
+                <button className="button" onClick={() => this.getCity("Tokyo")}>Tokyo</button>
+                <button className="button" onClick={() => this.getCity("Vietnam")}>Ho chi minh</button>
+                <button className="button" onClick={() => this.getCity("Paris")}>Paris</button>
+                <button className="button" onClick={() => this.getCity("New York")}>New York</button>
+                <button className="button" onClick={() => this.getCity("Miami")}>Miami</button>
+                <button className="button" onClick={() => this.getCity("San Francisco")}>San Francisco</button>
+                <button className="button" onClick={() => this.getCity("Moscow")}>Moscow</button>
+                <button className="button" onClick={() => this.getCity("Tokyo")}>Tokyo</button>   
+              </div>   
+              <div className="col-6 middle-column">
                 <h1>Weather APP</h1>
-                <h1>{this.state.weatherResult.name}</h1>
-                <h1>{this.state.weatherResult.main.temp}C</h1>
-                <h1>{this.state.weatherResult.weather[0].description}</h1>
-                <Button variant="primary"> Primary</Button>{' '}
+                <h2>{this.state.weatherResult.name}</h2>
+                <h4>{this.state.weatherResult.main.temp}ºC</h4>
+                <h4>{this.state.weatherResult.weather[0].description}</h4>
+                {/* <Button variant="primary"> Primary</Button>{' '} */}
               </div>
-            </Col-10>
-          </Row>
-        </Container>
-
-        
-        
+              <div className="col-3 LRcolumn" >
+              <button className="button" onClick={() => this.getCity("Vietnam")}>Ho chi minh</button>
+                <button className="button" onClick={() => this.getCity("Paris")}>Paris</button>
+                <button className="button" onClick={() => this.getCity("New York")}>New York</button>
+                <button className="button" onClick={() => this.getCity("Miami")}>Miami</button>
+                <button className="button" onClick={() => this.getCity("San Francisco")}>San Francisco</button>
+                <button className="button" onClick={() => this.getCity("Moscow")}>Moscow</button>
+                <button className="button" onClick={() => this.getCity("Tokyo")}>Tokyo</button>
+                <button className="button" onClick={() => this.getCity("Vietnam")}>Ho chi minh</button>
+                <button className="button" onClick={() => this.getCity("Paris")}>Paris</button>
+                <button className="button" onClick={() => this.getCity("New York")}>New York</button>
+                <button className="button" onClick={() => this.getCity("Miami")}>Miami</button>
+                <button className="button" onClick={() => this.getCity("San Francisco")}>San Francisco</button>
+                <button className="button" onClick={() => this.getCity("Moscow")}>Moscow</button>
+                <button className="button" onClick={() => this.getCity("Tokyo")}>Tokyo</button>  
+              </div>
+          </div>
+          <div className="row bottom-section">
+            <p className="bottom-text">Made by ... by Tui Nè</p>
+          </div>
+        </div>
       </div>
     )
   }
