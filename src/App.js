@@ -9,6 +9,7 @@ import { FormControl } from 'react-bootstrap'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
+import Loading from './Loading'
 
 export default class App extends Component {
 
@@ -19,10 +20,14 @@ export default class App extends Component {
     }
   }
 
+  convertToC = (F) => {
+    return ((F - 32) * 5 / 9)
+  }
+
   getCurrentWeather = async(lon, lat) => {
     // let apiKey = "242179772c9104148eac38dc4a7d71f0"
     let apiKey = process.env.REACT_APP_APIKEY
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
     let data = await fetch(url)
     let result = await data.json()
     console.log("The result is: ", result)
@@ -37,7 +42,7 @@ export default class App extends Component {
 
   getCity = async(city) => {
     let apiKey = process.env.REACT_APP_APIKEY
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
     let data = await fetch(url)
     let result = await data.json()
     console.log("The result is: ", result)
@@ -51,7 +56,7 @@ export default class App extends Component {
 
   render() {
     if(this.state.weatherResult == null){
-      return (<div>Loading</div>)
+      return (<Loading type="spin" color="red"></Loading>)
     }
     return (
       <div className="body-page">
@@ -69,47 +74,47 @@ export default class App extends Component {
           </div>
           <div className="row middle-section">
               <div className="col-3 LRcolumn" >
-                <button className="button" onClick={() => this.getCity("Vietnam")}>Ho chi minh</button>
-                <button className="button" onClick={() => this.getCity("Paris")}>Paris</button>
-                <button className="button" onClick={() => this.getCity("New York")}>New York</button>
-                <button className="button" onClick={() => this.getCity("Miami")}>Miami</button>
-                <button className="button" onClick={() => this.getCity("San Francisco")}>San Francisco</button>
-                <button className="button" onClick={() => this.getCity("Moscow")}>Moscow</button>
-                <button className="button" onClick={() => this.getCity("Tokyo")}>Tokyo</button>
-                <button className="button" onClick={() => this.getCity("Vietnam")}>Ho chi minh</button>
-                <button className="button" onClick={() => this.getCity("Paris")}>Paris</button>
-                <button className="button" onClick={() => this.getCity("New York")}>New York</button>
-                <button className="button" onClick={() => this.getCity("Miami")}>Miami</button>
-                <button className="button" onClick={() => this.getCity("San Francisco")}>San Francisco</button>
-                <button className="button" onClick={() => this.getCity("Moscow")}>Moscow</button>
-                <button className="button" onClick={() => this.getCity("Tokyo")}>Tokyo</button>   
+                <button className="button" onClick={() => this.getCity("Vietnam")}>Viet Nam</button>
+                <button className="button" onClick={() => this.getCity("Laos")}>Laos</button>
+                <button className="button" onClick={() => this.getCity("Thailand")}>Thailand</button>
+                <button className="button" onClick={() => this.getCity("Cambodia")}>Cambodia</button>
+                <button className="button" onClick={() => this.getCity("Indonesia")}>Indonesia</button>
+                <button className="button" onClick={() => this.getCity("Korea")}>Korea</button>
+                <button className="button" onClick={() => this.getCity("China")}>China</button>
+                <button className="button" onClick={() => this.getCity("Japan")}>Japan</button>
+                <button className="button" onClick={() => this.getCity("India")}>India</button>
+                <button className="button" onClick={() => this.getCity("Australia")}>Australia</button>
+                <button className="button" onClick={() => this.getCity("Myanmar")}>Myanmar</button>
+                <button className="button" onClick={() => this.getCity("Manila")}>Manila</button>
+                <button className="button" onClick={() => this.getCity("Pakistan")}>Pakistan</button>
+                <button className="button" onClick={() => this.getCity("Iran")}>Iran</button>   
               </div>   
               <div className="col-6 middle-column">
                 <h1>Weather APP</h1>
                 <h2>{this.state.weatherResult.name}</h2>
-                <h4>{this.state.weatherResult.main.temp}ºC</h4>
+                <h4>{Math.floor(this.state.weatherResult.main.temp)}ºF / {Math.floor(this.convertToC(this.state.weatherResult.main.temp))} ºC </h4>
                 <h4>{this.state.weatherResult.weather[0].description}</h4>
                 {/* <Button variant="primary"> Primary</Button>{' '} */}
               </div>
               <div className="col-3 LRcolumn" >
-              <button className="button" onClick={() => this.getCity("Vietnam")}>Ho chi minh</button>
-                <button className="button" onClick={() => this.getCity("Paris")}>Paris</button>
-                <button className="button" onClick={() => this.getCity("New York")}>New York</button>
+                <button className="button" onClick={() => this.getCity("America")}>US</button>
+                <button className="button" onClick={() => this.getCity("England")}>UK</button>
+                <button className="button" onClick={() => this.getCity("Mexico")}>Mexico</button>
                 <button className="button" onClick={() => this.getCity("Miami")}>Miami</button>
-                <button className="button" onClick={() => this.getCity("San Francisco")}>San Francisco</button>
-                <button className="button" onClick={() => this.getCity("Moscow")}>Moscow</button>
-                <button className="button" onClick={() => this.getCity("Tokyo")}>Tokyo</button>
-                <button className="button" onClick={() => this.getCity("Vietnam")}>Ho chi minh</button>
-                <button className="button" onClick={() => this.getCity("Paris")}>Paris</button>
-                <button className="button" onClick={() => this.getCity("New York")}>New York</button>
-                <button className="button" onClick={() => this.getCity("Miami")}>Miami</button>
-                <button className="button" onClick={() => this.getCity("San Francisco")}>San Francisco</button>
-                <button className="button" onClick={() => this.getCity("Moscow")}>Moscow</button>
-                <button className="button" onClick={() => this.getCity("Tokyo")}>Tokyo</button>  
+                <button className="button" onClick={() => this.getCity("Brazil")}>Brazil</button>
+                <button className="button" onClick={() => this.getCity("Greece")}>Greece</button>
+                <button className="button" onClick={() => this.getCity("Spain")}>Spain</button>
+                <button className="button" onClick={() => this.getCity("France")}>France</button>
+                <button className="button" onClick={() => this.getCity("Turkey")}>Turkey</button>
+                <button className="button" onClick={() => this.getCity("Italy")}>Italy</button>
+                <button className="button" onClick={() => this.getCity("Libya")}>Libya</button>
+                <button className="button" onClick={() => this.getCity("Romania")}>Romania</button>
+                <button className="button" onClick={() => this.getCity("Ukraine")}>Ukraine</button>
+                <button className="button" onClick={() => this.getCity("Belarus")}>Belarus</button>  
               </div>
           </div>
           <div className="row bottom-section">
-            <p className="bottom-text">Made by ... by Tui Nè</p>
+            <p className="bottom-text">Made by COVID-19</p>
           </div>
         </div>
       </div>
