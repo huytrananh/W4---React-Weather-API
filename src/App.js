@@ -31,7 +31,7 @@ export default class App extends Component {
     let data = await fetch(url)
     let result = await data.json()
     console.log("The result is: ", result)
-    this.setState({weatherResult : result})
+    setTimeout(()=>this.setState({weatherResult : result}),2000)
   }
 
   getLocation  = () => {
